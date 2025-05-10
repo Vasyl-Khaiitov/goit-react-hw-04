@@ -1,0 +1,23 @@
+.container {
+  max-width: 100vh;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form {
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  background-color: aqua;
+}
+
+.form_btn {
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid red;
+  color: black;
+}
