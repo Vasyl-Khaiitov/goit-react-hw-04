@@ -1,7 +1,7 @@
-export default function ImageCard() {
+export default function ImageCard({ altDescrp, smallPhoto }) {
   return (
     <div>
-      <img src="" alt="" />
+      <img src={smallPhoto} alt={altDescrp} />
     </div>
   );
 }
