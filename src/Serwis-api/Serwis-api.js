@@ -9,7 +9,7 @@ export const fetchArticlesWithTopic = async (topic, currentPage) => {
     params: {
       query: topic,
       page: currentPage,
-      per_page: 15,
+      per_page: 12,
     },
     headers: {
       Authorization: `Client-ID ${myApiKey}`,

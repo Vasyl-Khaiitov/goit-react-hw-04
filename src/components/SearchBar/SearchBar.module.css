@@ -1,12 +1,3 @@
-.container {
-  max-width: 100vh;
-  margin: 0 auto;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
 .form {
   height: 30px;
   display: flex;
@@ -20,4 +11,8 @@
   background-color: transparent;
   border: 1px solid red;
   color: black;
+}
+
+.form_iput {
+  width: 330px;
 }

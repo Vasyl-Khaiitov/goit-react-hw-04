@@ -26,6 +26,7 @@ export default function SearchBar({ onSubmit }) {
       >
         <Form className={css.form}>
           <Field
+            className={css.form_iput}
             type="text"
             name="searchphoto"
             autoComplete="off"
