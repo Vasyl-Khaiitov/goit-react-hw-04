@@ -40,7 +40,7 @@ export default function App() {
 
       const elementHeight = targetElement.clientHeight;
       window.scrollBy({ top: 2 * elementHeight, behavior: 'smooth' });
-    }, 500);
+    }, 1000);
   }, [currentPage, totalPages]);
 
   const incrementPage = () => {
