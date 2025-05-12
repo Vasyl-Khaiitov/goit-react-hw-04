@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 import ImageGallery from './components/ImageGallery/ImageGallery';
 import SearchBar from './components/SearchBar/SearchBar';
 import { fetchArticlesWithTopic } from './Serwis-api/Serwis-api';
@@ -29,16 +29,19 @@ export default function App() {
     setMessage(null);
   };
 
-  const scrollToElement = () => {
+  const scrollToElement = useCallback(() => {
     setTimeout(() => {
       if (!itemRefs.current.length || currentPage >= totalPages) return;
 
-      const firstNewIndex = itemRefs.current.length - 3;
+      const firstNewIndex = itemRefs.current.length - 2;
       const targetElement = itemRefs.current[firstNewIndex];
 
-      targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (!targetElement) return;
+
+      const elementHeight = targetElement.clientHeight;
+      window.scrollBy({ top: 2 * elementHeight, behavior: 'smooth' });
     }, 500);
-  };
+  }, [currentPage, totalPages]);
 
   const incrementPage = () => {
     setLoading(true);
@@ -71,10 +74,10 @@ export default function App() {
   }, [topic, currentPage]);
 
   useEffect(() => {
-    if (photoCollections.length > 0 && currentPage < totalPages) {
+    if (currentPage > 1 && currentPage < totalPages) {
       scrollToElement();
     }
-  }, [photoCollections, currentPage, totalPages]);
+  }, [currentPage, totalPages, scrollToElement]);
 
   function openModal(imageSrc, imageAlt) {
     setModalSrc(imageSrc);
